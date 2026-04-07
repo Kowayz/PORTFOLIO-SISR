@@ -1,0 +1,170 @@
+/* =====================================================
+   DOC VIEWER — Notion embed iframe overlay
+   ===================================================== */
+
+.dv-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(7, 6, 14, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+.dv-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ---- SHELL ---- */
+.dv-shell {
+  position: absolute;
+  inset: 32px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04);
+  transform: translateY(20px) scale(0.99);
+  opacity: 0;
+  transition: transform 300ms cubic-bezier(0.16,1,0.3,1), opacity 240ms ease;
+}
+.dv-overlay.is-open .dv-shell {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.dv-overlay.is-closing .dv-shell {
+  transform: translateY(12px) scale(0.99);
+  opacity: 0;
+  transition: transform 180ms cubic-bezier(0.4,0,1,1), opacity 160ms ease;
+}
+
+/* ---- HEADER ---- */
+.dv-header {
+  flex-shrink: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 22px 0 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  background: var(--surface);
+}
+.dv-header__accent-line {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--dv-accent, var(--primary));
+  opacity: 0.65;
+}
+.dv-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  color: var(--text-muted);
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  flex-shrink: 0;
+  transition: color 180ms, background 180ms, border-color 180ms;
+  cursor: pointer;
+}
+.dv-close:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.14);
+}
+.dv-header__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  min-width: 0;
+}
+.dv-header__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dv-accent, var(--primary));
+  opacity: 0.75;
+  line-height: 1.2;
+}
+.dv-header__title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+/* ---- IFRAME WRAP ---- */
+.dv-iframe-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* ---- LOADER ---- */
+.dv-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg);
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms;
+}
+.dv-loader.is-visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.dv-loader__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--dv-accent, var(--primary));
+  animation: dv-bounce 1.2s ease-in-out infinite;
+}
+.dv-loader__dot:nth-child(2) { animation-delay: 0.18s; }
+.dv-loader__dot:nth-child(3) { animation-delay: 0.36s; }
+@keyframes dv-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.35; }
+  40%            { transform: scale(1);   opacity: 1; }
+}
+
+/* ---- IFRAME ---- */
+.dv-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.dv-iframe.is-loaded { opacity: 1; }
+
+/* ---- ACCENT MODIFIERS ---- */
+.dv-header--accent-orange { --dv-accent: var(--secondary); }
+.dv-header--accent-violet { --dv-accent: var(--primary-light); }
+.dv-header--accent-teal   { --dv-accent: var(--teal); }
+.dv-header--accent-rose   { --dv-accent: #fb7185; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  .dv-shell { inset: 0; border-radius: 0; border: none; }
+}

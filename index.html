@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethan GESLIN — BTS SIO SISR</title>
+  <meta name="description"
+    content="Portfolio de Ethan GESLIN, étudiant en BTS SIO option SISR — réseaux, systèmes, virtualisation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=Manrope:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/doc-viewer.css" />
+</head>
+
+<body>
+
+  <div id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav__logo">
+      <span class="nav__logo-l">E</span><span class="nav__logo-m">G</span>
+      <span class="nav__logo-dot"></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#about">À propos de moi</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#ap">Activités AP</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#stage">Stage</a></li>
+      <li><a href="#veille">Veille</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+
+    <!-- pretext canvas: particle name animation -->
+    <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+    <!-- Background orbs (behind canvas) -->
+    <div class="hero__bg" aria-hidden="true">
+      <div class="bg-orb bg-orb--1"></div>
+      <div class="bg-orb bg-orb--2"></div>
+    </div>
+
+    <!-- HUD status badge — top-right corner -->
+    <div class="hero__tag reveal">
+      <span class="tag-dot"></span>
+      <span class="tag-label">Disponible</span>
+      <span class="tag-sub">pour alternance</span>
+      <span class="hero__tag-sep" aria-hidden="true" style="color:rgba(255,255,255,0.15)">|</span>
+      <span class="hero__tag-year">Sept. 2026</span>
+    </div>
+
+    <!-- Content overlay: typewriter + tagline + CTAs -->
+    <div class="hero__overlay">
+      <h1 class="sr-only">Ethan Geslin — BTS SIO SISR</h1>
+      <div class="hero__subtitle reveal">
+        <span class="type-cursor">Administrateur Systèmes &amp; Réseaux</span>
+      </div>
+      <p class="hero__tagline reveal">
+        Passionné par les infrastructures réseau et les systèmes Linux.<br>
+        Je construis, configure et sécurise.
+      </p>
+      <div class="hero__cta reveal">
+        <a href="assets/cv-ethan-geslin.pdf" download class="btn btn--primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Télécharger CV
+        </a>
+        <a href="#contact" class="btn btn--outline">Me contacter</a>
+      </div>
+    </div>
+
+
+    <!-- Bottom ticker -->
+    <div class="hero__ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>TCP/IP</span><span class="ticker__dot">·</span>
+        <span>VLAN</span><span class="ticker__dot">·</span>
+        <span>VPN IPsec</span><span class="ticker__dot">·</span>
+        <span>Windows Server</span><span class="ticker__dot">·</span>
+        <span>Linux Debian</span><span class="ticker__dot">·</span>
+        <span>Active Directory</span><span class="ticker__dot">·</span>
+        <span>Proxmox VE</span><span class="ticker__dot">·</span>
+        <span>pfSense</span><span class="ticker__dot">·</span>
+        <span>Docker</span><span class="ticker__dot">·</span>
+        <span>PowerShell</span><span class="ticker__dot">·</span>
+        <span>Wireshark</span><span class="ticker__dot">·</span>
+        <span>Nmap</span><span class="ticker__dot">·</span>
+        <span>Zabbix</span><span class="ticker__dot">·</span>
+        <span>OSPF</span><span class="ticker__dot">·</span>
+        <span>DNS / DHCP</span><span class="ticker__dot">·</span>
+        <!-- Duplicate for seamless loop -->
+        <span>TCP/IP</span><span class="ticker__dot">·</span>
+        <span>VLAN</span><span class="ticker__dot">·</span>
+        <span>VPN IPsec</span><span class="ticker__dot">·</span>
+        <span>Windows Server</span><span class="ticker__dot">·</span>
+        <span>Linux Debian</span><span class="ticker__dot">·</span>
+        <span>Active Directory</span><span class="ticker__dot">·</span>
+        <span>Proxmox VE</span><span class="ticker__dot">·</span>
+        <span>pfSense</span><span class="ticker__dot">·</span>
+        <span>Docker</span><span class="ticker__dot">·</span>
+        <span>PowerShell</span><span class="ticker__dot">·</span>
+        <span>Wireshark</span><span class="ticker__dot">·</span>
+        <span>Nmap</span><span class="ticker__dot">·</span>
+        <span>Zabbix</span><span class="ticker__dot">·</span>
+        <span>OSPF</span><span class="ticker__dot">·</span>
+        <span>DNS / DHCP</span><span class="ticker__dot">·</span>
+      </div>
+    </div>
+
+    <!-- Load pretext canvas animation -->
+    <script type="module" src="hero.js"></script>
+  </section>
+
+  <!-- À PROPOS DE MOI -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__num">01</span>
+        <h2 class="section__title">À propos de moi</h2>
+        <span class="section__deco" aria-hidden="true">01</span>
+      </div>
+
+      <div class="about__grid">
+
+        <!-- ── Carte identité (sticky) ── -->
+        <div class="about__profile reveal">
+
+          <!-- En-tête décoratif -->
+          <div class="profile__header" aria-hidden="true"></div>
+
+          <!-- Avatar + statut -->
+          <div class="profile__avatar-wrap">
+            <div class="profile__avatar">
+              <span class="profile__initials">EG</span>
+              <div class="profile__avatar-ring"></div>
+            </div>
+            <span class="profile__status">
+              <span class="tag-dot"></span>Dispo. alternance 2026–2027
+            </span>
+          </div>
+
+          <h3 class="profile__name">Ethan Geslin</h3>
+          <p class="profile__role">Administrateur Systèmes &amp; Réseaux</p>
+          <p class="profile__school">BTS SIO SISR · Efrei Paris</p>
+
+          <!-- Infos clés -->
+          <div class="profile__meta">
+            <div class="profile__meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Île-de-France
+            </div>
+            <div class="profile__meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              Promotion 2025–2027
+            </div>
+            <div class="profile__meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14" />
+                <path d="M12 5l7 7-7 7" />
+              </svg>
+              Mobilité Île-de-France
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="profile__stats">
+            <div class="profile__stat">
+              <div class="profile__stat-val">
+                <span class="about__stat-num" data-count="15">0</span><span class="about__stat-suffix">+</span>
+              </div>
+              <span class="profile__stat-label">Labs &amp; projets</span>
+            </div>
+            <div class="profile__stat-sep"></div>
+            <div class="profile__stat">
+              <div class="profile__stat-val">
+                <span class="about__stat-num" data-count="4">0</span>
+              </div>
+              <span class="profile__stat-label">Domaines</span>
+            </div>
+            <div class="profile__stat-sep"></div>
+            <div class="profile__stat">
+              <div class="profile__stat-val">
+                <span class="about__stat-num" data-count="4">0</span>
+              </div>
+              <span class="profile__stat-label">Projets perso</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="profile__links">
+            <a href="assets/cv-ethan-geslin.pdf" download class="profile__link profile__link--primary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Télécharger CV
+            </a>
+            <a href="#contact" class="profile__link">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              Me contacter
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Contenu ── -->
+        <div class="about__content">
+
+          <!-- Bio -->
+          <div class="about__bio reveal">
+            <p class="about__lead">
+              Je m'appelle Ethan, j'ai 19 ans. Passionné par les réseaux et la sécurité depuis le lycée, j'ai choisi le
+              BTS SISR pour transformer cette curiosité en vrai métier.
+            </p>
+            <p class="about__body">
+              Mon Bac Général m'a donné une base solide et polyvalente. C'est ma passion pour l'informatique et les
+              réseaux qui m'a poussé à me spécialiser en administration systèmes et réseaux avec le BTS SIO SISR à Efrei
+              Paris.
+            </p>
+            <p class="about__body">
+              En dehors des cours, je monte des labs à la maison, je participe à des CTF sur TryHackMe et Hack The Box,
+              et je me forme en continu sur la cybersécurité. Ce n'est pas juste un métier — c'est une curiosité
+              permanente.
+            </p>
+          </div>
+
+          <!-- Traits de caractère -->
+          <div class="about__traits reveal">
+            <div class="trait trait--violet">
+              <div class="trait__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18h6" />
+                  <path d="M10 22h4" />
+                  <path d="M12 2a7 7 0 0 1 4 12.7V17H8v-2.3A7 7 0 0 1 12 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="trait__title">Curieux</div>
+                <div class="trait__desc">Veille tech quotidienne, labs perso</div>
+              </div>
+            </div>
+            <div class="trait trait--teal">
+              <div class="trait__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
+              <div>
+                <div class="trait__title">Rigoureux</div>
+                <div class="trait__desc">Doc, méthode, zéro approximation</div>
+              </div>
+            </div>
+            <div class="trait trait--rose">
+              <div class="trait__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+              </div>
+              <div>
+                <div class="trait__title">Autonome</div>
+                <div class="trait__desc">Capable de trouver seul, de livrer</div>
+              </div>
+            </div>
+            <div class="trait trait--blue">
+              <div class="trait__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div>
+                <div class="trait__title">Esprit équipe</div>
+                <div class="trait__desc">À l'aise en CTF team et en stage</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parcours -->
+          <div class="about__timeline reveal">
+            <p class="about__stack-title">Parcours</p>
+            <div class="timeline__item timeline__item--current">
+              <div class="timeline__marker">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__body">
+                <div class="timeline__meta">
+                  <span class="timeline__date">2025 — 2027</span>
+                  <span class="timeline__pill">En cours</span>
+                </div>
+                <h4 class="timeline__title">BTS SIO — option SISR</h4>
+                <p class="timeline__sub">Efrei Paris · Villejuif</p>
+              </div>
+            </div>
+            <div class="timeline__item">
+              <div class="timeline__marker">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__body">
+                <div class="timeline__meta">
+                  <span class="timeline__date">2022 — 2025</span>
+                </div>
+                <h4 class="timeline__title">Bac Général</h4>
+                <p class="timeline__sub">Lycée FJ Talma · Brunoy</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ce que je cherche -->
+          <div class="about__looking reveal">
+            <div class="looking__head">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              Ce que je recherche
+            </div>
+            <div class="looking__body">
+              <div class="looking__item">
+                <span class="looking__key">Type</span>
+                <span class="looking__val">Alternance — 3 jours entreprise / 2 jours école</span>
+              </div>
+              <div class="looking__item">
+                <span class="looking__key">Domaine</span>
+                <span class="looking__val">Admin sys/réseaux · Infra cloud · Cybersécurité</span>
+              </div>
+              <div class="looking__item">
+                <span class="looking__key">Localisation</span>
+                <span class="looking__val">Paris &amp; Île-de-France · Télétravail partiel OK</span>
+              </div>
+              <div class="looking__item">
+                <span class="looking__key">Disponible</span>
+                <span class="looking__val">Septembre 2026</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section class="section section--dark" id="skills">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__num">02</span>
+        <h2 class="section__title">Compétences</h2>
+        <span class="section__deco" aria-hidden="true">02</span>
+      </div>
+
+      <div class="skills__sections">
+
+        <!-- ── Réseaux ── -->
+        <div class="skill-group skill-group--violet">
+          <div class="skill-group__header">
+            <div class="skill-group__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="5" r="3" />
+                <circle cx="5" cy="19" r="3" />
+                <circle cx="19" cy="19" r="3" />
+                <line x1="12" y1="8" x2="5" y2="16" />
+                <line x1="12" y1="8" x2="19" y2="16" />
+              </svg>
+            </div>
+            <span class="skill-group__title">Réseaux</span>
+            <span class="skill-group__count">6 compétences</span>
+          </div>
+          <div class="skill-group__grid">
+            <div class="skill-card skill-card--violet reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                aria-label="TCP/IP OSI">
+                <rect width="24" height="24" rx="5" fill="rgba(196,181,253,0.12)" stroke="rgba(196,181,253,0.25)"
+                  stroke-width="1" />
+                <rect x="3" y="5.5" width="18" height="3.5" rx="1.5" stroke="#c4b5fd" stroke-width="1.5" fill="none" />
+                <rect x="3" y="10.5" width="18" height="3.5" rx="1.5" stroke="#c4b5fd" stroke-width="1.5" fill="none" />
+                <rect x="3" y="15.5" width="18" height="3.5" rx="1.5" stroke="#c4b5fd" stroke-width="1.5" fill="none" />
+              </svg>
+              <div class="skill-card__name">TCP/IP — OSI</div>
+              <p class="skill-card__desc">Modèles de référence & encapsulation des données</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="90"></div>
+                </div><span class="skill-card__pct">90%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--violet reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                aria-label="VLAN STP">
+                <rect width="24" height="24" rx="5" fill="rgba(196,181,253,0.12)" stroke="rgba(196,181,253,0.25)"
+                  stroke-width="1" />
+                <rect x="5" y="9" width="14" height="5.5" rx="1.5" stroke="#c4b5fd" stroke-width="1.5" fill="none" />
+                <line x1="12" y1="9" x2="12" y2="5.5" stroke="#c4b5fd" stroke-width="1.5" stroke-linecap="round" />
+                <line x1="8.5" y1="14.5" x2="8.5" y2="18.5" stroke="#c4b5fd" stroke-width="1.5"
+                  stroke-linecap="round" />
+                <line x1="12" y1="14.5" x2="12" y2="18.5" stroke="#c4b5fd" stroke-width="1.5" stroke-linecap="round" />
+                <line x1="15.5" y1="14.5" x2="15.5" y2="18.5" stroke="#c4b5fd" stroke-width="1.5"
+                  stroke-linecap="round" />
+              </svg>
+              <div class="skill-card__name">VLAN / Trunk / STP</div>
+              <p class="skill-card__desc">Segmentation réseau, agrégation & spanning tree</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="80"></div>
+                </div><span class="skill-card__pct">80%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--violet reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                aria-label="Routage OSPF RIP">
+                <rect width="24" height="24" rx="5" fill="rgba(196,181,253,0.12)" stroke="rgba(196,181,253,0.25)"
+                  stroke-width="1" />
+                <circle cx="12" cy="12" r="4.5" stroke="#c4b5fd" stroke-width="1.5" fill="none" />
+                <line x1="3" y1="12" x2="7.5" y2="12" stroke="#c4b5fd" stroke-width="1.5" stroke-linecap="round" />
+                <line x1="16.5" y1="12" x2="21" y2="12" stroke="#c4b5fd" stroke-width="1.5" stroke-linecap="round" />
+                <polyline points="19,10 21,12 19,14" stroke="#c4b5fd" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <circle cx="12" cy="12" r="1.5" fill="#c4b5fd" />
+              </svg>
+              <div class="skill-card__name">Routage OSPF / RIP</div>
+              <p class="skill-card__desc">Protocoles de routage dynamique inter-réseaux</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="70"></div>
+                </div><span class="skill-card__pct">70%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--violet reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/openvpn/c4b5fd" alt="OpenVPN" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">VPN IPsec / OpenVPN</div>
+              <p class="skill-card__desc">Tunnels chiffrés site-à-site & accès distant sécurisé</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="65"></div>
+                </div><span class="skill-card__pct">65%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--violet reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/pfsense/c4b5fd" alt="pfSense" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Firewall pfSense</div>
+              <p class="skill-card__desc">Filtrage par zones, NAT, règles ACL & IDS/IPS</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="72"></div>
+                </div><span class="skill-card__pct">72%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--violet reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/cisco/c4b5fd" alt="Cisco" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Cisco Packet Tracer / GNS3</div>
+              <p class="skill-card__desc">Simulation & maquettage d'infrastructures réseau</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="85"></div>
+                </div><span class="skill-card__pct">85%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Systèmes ── -->
+        <div class="skill-group skill-group--teal">
+          <div class="skill-group__header">
+            <div class="skill-group__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <span class="skill-group__title">Systèmes</span>
+            <span class="skill-group__count">8 compétences</span>
+          </div>
+          <div class="skill-group__grid">
+            <div class="skill-card skill-card--teal reveal">
+              <img class="skill-card__logo skill-card__logo--teal-tint"
+                src="https://unpkg.com/@lobehub/icons-static-png/light/Microsoft.png" alt="Windows Server" width="28"
+                height="28" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Windows Server 2019/2022</div>
+              <p class="skill-card__desc">Administration, rôles AD DS, DNS, DHCP & services</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="80"></div>
+                </div><span class="skill-card__pct">80%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--teal reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/debian/5eead4" alt="Debian" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Linux Debian / Rocky</div>
+              <p class="skill-card__desc">Administration système, CLI & gestion des paquets</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="75"></div>
+                </div><span class="skill-card__pct">75%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--teal reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                aria-label="Active Directory">
+                <rect width="24" height="24" rx="5" fill="rgba(94,234,212,0.12)" stroke="rgba(94,234,212,0.25)"
+                  stroke-width="1" />
+                <circle cx="12" cy="7" r="2.5" stroke="#5eead4" stroke-width="1.5" fill="none" />
+                <path d="M6.5 18c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#5eead4" stroke-width="1.5" stroke-linecap="round"
+                  fill="none" />
+                <circle cx="6" cy="10" r="1.8" stroke="#5eead4" stroke-width="1.2" fill="none" />
+                <path d="M3 17.5c0-2 1.3-3.5 3-3.5" stroke="#5eead4" stroke-width="1.2" stroke-linecap="round"
+                  fill="none" />
+                <circle cx="18" cy="10" r="1.8" stroke="#5eead4" stroke-width="1.2" fill="none" />
+                <path d="M21 17.5c0-2-1.3-3.5-3-3.5" stroke="#5eead4" stroke-width="1.2" stroke-linecap="round"
+                  fill="none" />
+              </svg>
+              <div class="skill-card__name">Active Directory / GPO</div>
+              <p class="skill-card__desc">Gestion des identités, OU, groupes & stratégies</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="78"></div>
+                </div><span class="skill-card__pct">78%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--teal reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                aria-label="DNS DHCP NTP">
+                <rect width="24" height="24" rx="5" fill="rgba(94,234,212,0.12)" stroke="rgba(94,234,212,0.25)"
+                  stroke-width="1" />
+                <circle cx="12" cy="12" r="6.5" stroke="#5eead4" stroke-width="1.5" fill="none" />
+                <path d="M12 5.5c-1.8 1.8-2.8 3.9-2.8 6.5s1 4.7 2.8 6.5" stroke="#5eead4" stroke-width="1.2"
+                  stroke-linecap="round" fill="none" />
+                <path d="M12 5.5c1.8 1.8 2.8 3.9 2.8 6.5s-1 4.7-2.8 6.5" stroke="#5eead4" stroke-width="1.2"
+                  stroke-linecap="round" fill="none" />
+                <line x1="5.5" y1="12" x2="18.5" y2="12" stroke="#5eead4" stroke-width="1.2" stroke-linecap="round" />
+              </svg>
+              <div class="skill-card__name">DNS / DHCP / NTP</div>
+              <p class="skill-card__desc">Configuration & gestion des services réseau essentiels</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="82"></div>
+                </div><span class="skill-card__pct">82%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--teal reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/nginx/5eead4" alt="Nginx" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Apache / Nginx</div>
+              <p class="skill-card__desc">Serveurs web, virtual hosts, HTTPS & reverse proxy</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="70"></div>
+                </div><span class="skill-card__pct">70%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--teal reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                aria-label="Sauvegardes RAID">
+                <rect width="24" height="24" rx="5" fill="rgba(94,234,212,0.12)" stroke="rgba(94,234,212,0.25)"
+                  stroke-width="1" />
+                <ellipse cx="12" cy="7" rx="6" ry="2.2" stroke="#5eead4" stroke-width="1.5" fill="none" />
+                <path d="M6 7v3.5" stroke="#5eead4" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M18 7v3.5" stroke="#5eead4" stroke-width="1.5" stroke-linecap="round" />
+                <ellipse cx="12" cy="10.5" rx="6" ry="2.2" stroke="#5eead4" stroke-width="1.5" fill="none" />
+                <path d="M6 10.5V14" stroke="#5eead4" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M18 10.5V14" stroke="#5eead4" stroke-width="1.5" stroke-linecap="round" />
+                <ellipse cx="12" cy="14" rx="6" ry="2.2" stroke="#5eead4" stroke-width="1.5" fill="none" />
+                <circle cx="9.5" cy="14" r="1" fill="#5eead4" />
+              </svg>
+              <div class="skill-card__name">Sauvegardes / RAID</div>
+              <p class="skill-card__desc">Redondance disque, PRA & stratégies de sauvegarde</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="68"></div>
+                </div><span class="skill-card__pct">68%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--teal reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/kalilinux/5eead4" alt="Kali Linux"
+                width="26" height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Kali Linux</div>
+              <p class="skill-card__desc">Audits de sécurité & tests de pénétration</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="74"></div>
+                </div><span class="skill-card__pct">74%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--teal reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-label="GLPI">
+                <rect width="24" height="24" rx="5" fill="rgba(94,234,212,0.12)" stroke="rgba(94,234,212,0.25)"
+                  stroke-width="1" />
+                <rect x="3" y="6" width="18" height="12" rx="2" stroke="#5eead4" stroke-width="1.5" fill="none" />
+                <line x1="3" y1="10" x2="21" y2="10" stroke="#5eead4" stroke-width="1.2" />
+                <circle cx="6.5" cy="8" r="1" fill="#5eead4" />
+                <circle cx="9.5" cy="8" r="1" fill="#5eead4" />
+                <rect x="6" y="12.5" width="5" height="1.5" rx="0.75" fill="#5eead4" opacity="0.7" />
+                <rect x="6" y="15" width="8" height="1.5" rx="0.75" fill="#5eead4" opacity="0.5" />
+              </svg>
+              <div class="skill-card__name">GLPI</div>
+              <p class="skill-card__desc">Gestion de parc IT, tickets & inventaire d'assets</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="70"></div>
+                </div><span class="skill-card__pct">70%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Virtualisation ── -->
+        <div class="skill-group skill-group--orange">
+          <div class="skill-group__header">
+            <div class="skill-group__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
+            </div>
+            <span class="skill-group__title">Virtualisation</span>
+            <span class="skill-group__count">6 compétences</span>
+          </div>
+          <div class="skill-group__grid">
+            <div class="skill-card skill-card--orange reveal">
+              <img class="skill-card__logo skill-card__logo--xl" src="https://cdn.simpleicons.org/vmware/fdba74"
+                alt="VMware" width="52" height="52" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">VMware Workstation / ESXi</div>
+              <p class="skill-card__desc">Hyperviseur type 1 & 2, gestion des VMs & snapshots</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="75"></div>
+                </div><span class="skill-card__pct">75%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--orange reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/proxmox/fdba74" alt="Proxmox" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Proxmox VE</div>
+              <p class="skill-card__desc">Plateforme open source KVM + LXC & clustering</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="70"></div>
+                </div><span class="skill-card__pct">70%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--orange reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/virtualbox/fdba74" alt="VirtualBox"
+                width="26" height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">VirtualBox</div>
+              <p class="skill-card__desc">VMs locales pour labs & environnements de test</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="88"></div>
+                </div><span class="skill-card__pct">88%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--orange reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/docker/fdba74" alt="Docker" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Docker / Docker Compose</div>
+              <p class="skill-card__desc">Conteneurisation, images & orchestration de services</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="65"></div>
+                </div><span class="skill-card__pct">65%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--orange reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/vagrant/fdba74" alt="Vagrant" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Vagrant</div>
+              <p class="skill-card__desc">Provisioning automatisé d'environnements reproductibles</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="55"></div>
+                </div><span class="skill-card__pct">55%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--orange reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                aria-label="Clonage Snapshots">
+                <rect width="24" height="24" rx="5" fill="rgba(253,186,116,0.12)" stroke="rgba(253,186,116,0.25)"
+                  stroke-width="1" />
+                <rect x="9.5" y="4.5" width="10" height="10" rx="2" stroke="#fdba74" stroke-width="1.5" fill="none" />
+                <rect x="4.5" y="9.5" width="10" height="10" rx="2" stroke="#fdba74" stroke-width="1.5"
+                  fill="rgba(10,8,20,0.85)" />
+                <circle cx="9.5" cy="14.5" r="1.5" fill="#fdba74" />
+              </svg>
+              <div class="skill-card__name">Clonage / Snapshots</div>
+              <p class="skill-card__desc">Sauvegarde d'état de VMs & restauration rapide</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="85"></div>
+                </div><span class="skill-card__pct">85%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Scripting & Outils ── -->
+        <div class="skill-group skill-group--rose">
+          <div class="skill-group__header">
+            <div class="skill-group__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <span class="skill-group__title">Scripting &amp; Outils</span>
+            <span class="skill-group__count">8 compétences</span>
+          </div>
+          <div class="skill-group__grid">
+            <div class="skill-card skill-card--rose reveal">
+              <svg class="skill-card__logo" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                aria-label="PowerShell">
+                <rect width="24" height="24" rx="5" fill="rgba(253,164,175,0.12)" stroke="rgba(253,164,175,0.25)"
+                  stroke-width="1" />
+                <polyline points="4.5,8.5 9.5,12 4.5,15.5" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <line x1="11.5" y1="15.5" x2="18.5" y2="15.5" stroke="#fda4af" stroke-width="1.8"
+                  stroke-linecap="round" />
+              </svg>
+              <div class="skill-card__name">PowerShell</div>
+              <p class="skill-card__desc">Automatisation Windows, AD & gestion des services</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="72"></div>
+                </div><span class="skill-card__pct">72%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--rose reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/gnubash/fda4af" alt="Bash" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Bash</div>
+              <p class="skill-card__desc">Scripts systèmes Linux, cron & automatisation</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="68"></div>
+                </div><span class="skill-card__pct">68%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--rose reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/python/fda4af" alt="Python" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Python</div>
+              <p class="skill-card__desc">Scripting réseau, parsing & outils d'administration</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="55"></div>
+                </div><span class="skill-card__pct">55%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--rose reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/git/fda4af" alt="Git" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Git / GitHub</div>
+              <p class="skill-card__desc">Versioning, branches, pull requests & collaboration</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="70"></div>
+                </div><span class="skill-card__pct">70%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--rose reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/wireshark/fda4af" alt="Wireshark"
+                width="28" height="28" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Wireshark / Nmap</div>
+              <p class="skill-card__desc">Analyse de trafic réseau & scan de ports/services</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="80"></div>
+                </div><span class="skill-card__pct">80%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--rose reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/grafana/fda4af" alt="Grafana" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Zabbix / Grafana</div>
+              <p class="skill-card__desc">Supervision d'infrastructure & dashboards de métriques</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="60"></div>
+                </div><span class="skill-card__pct">60%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--rose reveal">
+              <img class="skill-card__logo" src="https://cdn.simpleicons.org/ansible/fda4af" alt="Ansible" width="26"
+                height="26" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Ansible</div>
+              <p class="skill-card__desc">Automatisation de configuration & déploiement IaC</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="58"></div>
+                </div><span class="skill-card__pct">58%</span>
+              </div>
+            </div>
+            <div class="skill-card skill-card--rose reveal">
+              <img class="skill-card__logo skill-card__logo--rose-tint"
+                src="https://unpkg.com/@lobehub/icons-static-png/light/Antigravity.png" alt="Antigravity" width="28"
+                height="28" loading="lazy" onerror="this.remove()">
+              <div class="skill-card__name">Antigravity</div>
+              <p class="skill-card__desc">import antigravity — easter egg Python depuis 2009</p>
+              <div class="skill-card__bottom">
+                <div class="skill-card__bar">
+                  <div class="skill-card__fill" data-level="100"></div>
+                </div><span class="skill-card__pct">100%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Badges techno -->
+      <div class="tech-badges reveal">
+        <span class="tech-badge">Cisco IOS</span>
+        <span class="tech-badge">pfSense</span>
+        <span class="tech-badge">Active Directory</span>
+        <span class="tech-badge">VMware</span>
+        <span class="tech-badge">Proxmox</span>
+        <span class="tech-badge">Docker</span>
+        <span class="tech-badge">Linux</span>
+        <span class="tech-badge">Windows Server</span>
+        <span class="tech-badge">PowerShell</span>
+        <span class="tech-badge">Wireshark</span>
+        <span class="tech-badge">Nmap</span>
+        <span class="tech-badge">Zabbix</span>
+        <span class="tech-badge">Git</span>
+        <span class="tech-badge">Apache</span>
+        <span class="tech-badge">Nginx</span>
+        <span class="tech-badge">Kali Linux</span>
+        <span class="tech-badge">Ansible</span>
+        <span class="tech-badge">Antigravity</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLEAU DE SYNTHÈSE AP -->
+  <section class="section" id="ap">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__num">03</span>
+        <h2 class="section__title">Activités Professionnelles</h2>
+        <p class="section__sub">Tableau de synthèse des AP réalisées en BTS SIO SISR</p>
+        <span class="section__deco" aria-hidden="true">03</span>
+      </div>
+
+      <div class="ap-cards">
+
+        <div class="ap-card ap-card--violet reveal">
+          <div class="ap-card__inner">
+            <div class="ap-card__header">
+              <span class="ap-card__num">C1</span>
+              <h3 class="ap-card__title">Recensement et identification des ressources numériques</h3>
+              <div class="ap-card__tags">
+                <span class="competence-tag">B1.1</span>
+                <span class="competence-tag">B3.1</span>
+              </div>
+            </div>
+            <div class="ap-card__body">
+              <p class="ap-card__context">Inventaire complet du parc informatique : équipements réseau, postes de travail, serveurs et licences logicielles. Utilisation d'outils de découverte automatisée.</p>
+              <div class="ap-card__livrables">
+                <span class="ap-card__livrable-label">Livrables</span>
+                <ul class="livrable-list">
+                  <li>Tableau d'inventaire du parc</li>
+                  <li>Fiche d'identité des ressources</li>
+                  <li>Rapport de cartographie réseau</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ap-card ap-card--purple reveal">
+          <div class="ap-card__inner">
+            <div class="ap-card__header">
+              <span class="ap-card__num">C7</span>
+              <h3 class="ap-card__title">Collecte, suivi et orientation des demandes</h3>
+              <div class="ap-card__tags">
+                <span class="competence-tag">B3.1</span>
+                <span class="competence-tag">B3.2</span>
+              </div>
+            </div>
+            <div class="ap-card__body">
+              <p class="ap-card__context">Prise en charge des tickets d'incidents et demandes utilisateurs via un outil ITSM. Qualification, priorisation et orientation vers le bon niveau de support.</p>
+              <div class="ap-card__livrables">
+                <span class="ap-card__livrable-label">Livrables</span>
+                <ul class="livrable-list">
+                  <li>Journal de tickets traités</li>
+                  <li>Procédure de qualification</li>
+                  <li>Rapport de suivi mensuel</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ap-card ap-card--orange reveal">
+          <div class="ap-card__inner">
+            <div class="ap-card__header">
+              <span class="ap-card__num">C11</span>
+              <h3 class="ap-card__title">Référencement des services en ligne de l'organisation et mesure de leur visibilité</h3>
+              <div class="ap-card__tags">
+                <span class="competence-tag">B2.3</span>
+                <span class="competence-tag">B3.1</span>
+              </div>
+            </div>
+            <div class="ap-card__body">
+              <p class="ap-card__context">Création d'un site vitrine hébergé sur GitHub Pages et intégration de Google Analytics pour mesurer la visibilité et le trafic du service en ligne.</p>
+              <div class="ap-card__livrables">
+                <span class="ap-card__livrable-label">Livrables</span>
+                <ul class="livrable-list">
+                  <li>Liste des services publiés</li>
+                  <li>Rapport d'audit de visibilité</li>
+                  <li>Recommandations de sécurisation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ap-card ap-card--rose reveal">
+          <div class="ap-card__inner">
+            <div class="ap-card__header">
+              <span class="ap-card__num">C14</span>
+              <h3 class="ap-card__title">Planification des activités</h3>
+              <div class="ap-card__tags">
+                <span class="competence-tag">B3.1</span>
+                <span class="competence-tag">B3.2</span>
+              </div>
+            </div>
+            <div class="ap-card__body">
+              <p class="ap-card__context">Organisation et planification des interventions techniques, mises à jour et maintenances. Priorisation des tâches selon les contraintes de service.</p>
+              <div class="ap-card__livrables">
+                <span class="ap-card__livrable-label">Livrables</span>
+                <ul class="livrable-list">
+                  <li>Planning d'interventions</li>
+                  <li>Calendrier de maintenance</li>
+                  <li>Compte-rendu d'activité</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ap-card ap-card--teal reveal">
+          <div class="ap-card__inner">
+            <div class="ap-card__header">
+              <span class="ap-card__num">C17</span>
+              <h3 class="ap-card__title">Déploiement d'un service</h3>
+              <div class="ap-card__tags">
+                <span class="competence-tag">B1.1</span>
+                <span class="competence-tag">B2.1</span>
+                <span class="competence-tag">B1.3</span>
+              </div>
+            </div>
+            <div class="ap-card__body">
+              <p class="ap-card__context">Installation, configuration et mise en production d'un service informatique en environnement réel. Tests de validation et remise en service documentée.</p>
+              <div class="ap-card__livrables">
+                <span class="ap-card__livrable-label">Livrables</span>
+                <ul class="livrable-list">
+                  <li>Procédure de déploiement</li>
+                  <li>Rapport de recette</li>
+                  <li>Documentation d'exploitation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ap-legend reveal">
+        <h4>Légende des compétences</h4>
+        <div class="legend-grid">
+          <div class="legend-item"><span class="competence-tag">B1.1</span> Installer et configurer les éléments d'une
+            infra réseau</div>
+          <div class="legend-item"><span class="competence-tag">B1.2</span> Déployer les ressources d'une infra de
+            stockage</div>
+          <div class="legend-item"><span class="competence-tag">B1.3</span> Faire évoluer une infrastructure</div>
+          <div class="legend-item"><span class="competence-tag">B2.1</span> Exploiter les ressources d'un serveur</div>
+          <div class="legend-item"><span class="competence-tag">B2.2</span> Déployer et gérer une infra virtualisée
+          </div>
+          <div class="legend-item"><span class="competence-tag">B2.3</span> Exploiter et maintenir les services</div>
+          <div class="legend-item"><span class="competence-tag">B3.1</span> Traiter les demandes d'assistance</div>
+          <div class="legend-item"><span class="competence-tag">B3.2</span> Identifier et résoudre les
+            dysfonctionnements</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section class="section section--dark" id="projects">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__num">04</span>
+        <h2 class="section__title">Projets</h2>
+        <span class="section__deco" aria-hidden="true">04</span>
+      </div>
+
+      <div class="projects__grid">
+
+        <article class="project-card reveal" data-accent="orange">
+          <div class="project-card__header">
+            <div class="project-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+                <line x1="7" y1="8" x2="7" y2="12" />
+                <line x1="12" y1="7" x2="12" y2="12" />
+                <line x1="17" y1="9" x2="17" y2="12" />
+              </svg>
+            </div>
+            <div class="project-card__stack">
+              <img src="https://cdn.simpleicons.org/vagrant/fdba74" alt="Vagrant" width="20" height="20" loading="lazy" title="Vagrant">
+              <img src="https://cdn.simpleicons.org/ansible/fdba74" alt="Ansible" width="20" height="20" loading="lazy" title="Ansible">
+              <img src="https://cdn.simpleicons.org/debian/fdba74" alt="Debian" width="20" height="20" loading="lazy" title="Debian">
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">VM Debian LAMP — Vagrant &amp; Ansible</h3>
+            <p class="project-card__desc">Provisioning automatisé d'une VM Debian sur VMware via Vagrant et
+              configuration de la stack LAMP par playbook Ansible. Deux variantes déployées : mode headless et avec
+              environnement de bureau GNOME.</p>
+            <div class="project-card__variants">
+              <span class="project-card__variant">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+                Headless
+              </span>
+              <span class="project-card__variant">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                Avec GNOME
+              </span>
+            </div>
+            <div class="project-card__tech">
+              <span>Vagrant</span>
+              <span>Ansible</span>
+              <span>VMware</span>
+              <span>Debian</span>
+              <span>Apache</span>
+              <span>MySQL</span>
+              <span>PHP</span>
+            </div>
+          </div>
+          <footer class="project-card__footer">
+            <a class="project-card__footer-github" href="https://github.com/Kowayz/VM-Debian-LAMP-Vagrant-Ansible" target="_blank" rel="noopener" aria-label="Voir sur GitHub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>Code source</span>
+            </a>
+            <button class="project-card__footer-doc"
+              data-notion-url="https://nebulous-citron-069.notion.site/ebd//100d0fb6dcc146128fa25f728a5d3a31"
+              data-title="VM Debian LAMP — Vagrant &amp; Ansible">
+              <span>Documentation</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </footer>
+        </article>
+
+        <article class="project-card reveal" data-accent="violet">
+          <div class="project-card__header">
+            <div class="project-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6.5 20c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5" />
+                <circle cx="4.5" cy="10" r="2.5" />
+                <path d="M2 20c0-2 1.2-3.5 2.5-3.5" />
+                <circle cx="19.5" cy="10" r="2.5" />
+                <path d="M22 20c0-2-1.2-3.5-2.5-3.5" />
+              </svg>
+            </div>
+            <div class="project-card__stack">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg" alt="Windows" width="20" height="20" loading="lazy" title="Windows Server">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg" alt="PowerShell" width="20" height="20" loading="lazy" title="PowerShell">
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Lab Active Directory — Windows Server 2022</h3>
+            <p class="project-card__desc">Déploiement d'un domaine Active Directory complet sous Windows Server 2022.
+              Configuration des GPO, OU, utilisateurs et groupes. Scripts PowerShell pour l'automatisation de la gestion
+              des comptes.</p>
+            <div class="project-card__variants">
+              <span class="project-card__variant">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="3" y="11" width="18" height="11" rx="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                GPO &amp; Sécurité
+              </span>
+              <span class="project-card__variant">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+                PowerShell
+              </span>
+            </div>
+            <div class="project-card__tech">
+              <span>Windows Server</span>
+              <span>Active Directory</span>
+              <span>PowerShell</span>
+              <span>DNS</span>
+              <span>DHCP</span>
+              <span>GPO</span>
+            </div>
+          </div>
+          <footer class="project-card__footer">
+            <span class="project-card__footer-github project-card__footer--wip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>Bientôt</span>
+            </span>
+            <span class="project-card__footer-doc project-card__footer--wip">
+              <span>Documentation</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </footer>
+        </article>
+
+        <article class="project-card reveal" data-accent="teal">
+          <div class="project-card__header">
+            <div class="project-card__icon">
+              <img src="https://cdn.simpleicons.org/proxmox/5eead4" alt="Proxmox" width="28" height="28" loading="lazy">
+            </div>
+            <div class="project-card__stack">
+              <img src="https://cdn.simpleicons.org/ansible/5eead4" alt="Ansible" width="20" height="20" loading="lazy" title="Ansible">
+              <img src="https://cdn.simpleicons.org/nginx/5eead4" alt="Nginx" width="20" height="20" loading="lazy" title="Nginx">
+              <img src="https://cdn.simpleicons.org/mariadb/5eead4" alt="MariaDB" width="20" height="20" loading="lazy" title="MariaDB">
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Homelab Proxmox — Réseau Minecraft Multi-Serveurs</h3>
+            <p class="project-card__desc">Infrastructure distribuée sur Proxmox : proxy BungeeCord, serveurs de jeu
+              isolés par VLANs, base de données MariaDB dédiée, reverse proxy Nginx et supervision Zabbix. Déploiement
+              automatisé via Ansible, backups PBS planifiés.</p>
+            <div class="project-card__variants">
+              <span class="project-card__variant">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M3 12h3M18 12h3M12 3v3M12 18v3" />
+                </svg>
+                Multi-nœuds
+              </span>
+              <span class="project-card__variant">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+                IaC Ansible
+              </span>
+            </div>
+            <div class="project-card__tech">
+              <span>Proxmox</span>
+              <span>BungeeCord</span>
+              <span>MariaDB</span>
+              <span>Ansible</span>
+              <span>Nginx</span>
+              <span>Zabbix</span>
+              <span>pfSense</span>
+            </div>
+          </div>
+          <footer class="project-card__footer">
+            <span class="project-card__footer-github project-card__footer--wip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>Bientôt</span>
+            </span>
+            <span class="project-card__footer-doc project-card__footer--wip">
+              <span>Documentation</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </footer>
+        </article>
+
+        <article class="project-card reveal" data-accent="rose">
+          <div class="project-card__header">
+            <div class="project-card__icon">
+              <img src="https://unpkg.com/@lobehub/icons-static-png@latest/dark/openclaw.png" alt="OpenClaw" width="32"
+                height="32" loading="lazy" class="project-card__icon-img project-card__icon-img--rose"
+                onerror="this.remove()">
+            </div>
+            <div class="project-card__stack">
+              <img src="https://unpkg.com/@lobehub/icons-static-png@latest/dark/Ollama.png" alt="Ollama" width="20" height="20" loading="lazy" title="Ollama" class="stack-rose">
+              <img src="https://cdn.simpleicons.org/python/fda4af" alt="Python" width="20" height="20" loading="lazy" title="Python">
+              <img src="https://unpkg.com/@lobehub/icons-static-png@latest/dark/Gemma.png" alt="Gemma" width="20" height="20" loading="lazy" title="Google Gemma" class="stack-lg stack-rose">
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Agent Local Gemma — OpenClaw &amp; Ollama</h3>
+            <p class="project-card__desc">Déploiement d'un agent IA local basé sur le modèle Gemma via Ollama,
+              entièrement off-line et souverain. Intégration avec OpenClaw pour le pilotage d'agents autonomes.
+              Infrastructure self-hosted sur machine Linux.</p>
+            <div class="project-card__variants">
+              <span class="project-card__variant">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3" />
+                </svg>
+                LLM Local
+              </span>
+              <span class="project-card__variant">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                100% Off-line
+              </span>
+            </div>
+            <div class="project-card__tech">
+              <span>Gemma</span>
+              <span>Ollama</span>
+              <span>OpenClaw</span>
+              <span>Linux</span>
+              <span>Python</span>
+              <span>Docker</span>
+            </div>
+          </div>
+          <footer class="project-card__footer">
+            <span class="project-card__footer-github project-card__footer--wip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>Bientôt</span>
+            </span>
+            <span class="project-card__footer-doc project-card__footer--wip">
+              <span>Documentation</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </footer>
+        </article>
+
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <!-- STAGE -->
+  <section class="section" id="stage">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__num">05</span>
+        <h2 class="section__title">Stage</h2>
+        <span class="section__deco" aria-hidden="true">05</span>
+      </div>
+
+      <div class="stage__coming reveal">
+        <div class="stage__coming-badge">
+          <span class="tag-dot"></span>
+          Stage à venir — 1ère année BTS
+        </div>
+        <svg class="stage__coming-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.2" aria-hidden="true">
+          <rect x="2" y="7" width="20" height="14" rx="2" />
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+        <h3 class="stage__coming-title">En recherche de stage</h3>
+        <p class="stage__coming-desc">
+          Mon stage de première année BTS SIO SISR est prévu pour 2026. Je recherche une entreprise en Île-de-France
+          spécialisée en administration systèmes &amp; réseaux, infrastructure cloud ou cybersécurité.
+        </p>
+        <div class="stage__coming-info">
+          <div class="stage__coming-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            Durée : 5 à 6 semaines
+          </div>
+          <div class="stage__coming-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Paris &amp; Île-de-France
+          </div>
+          <div class="stage__coming-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="5" r="3" />
+              <circle cx="5" cy="19" r="3" />
+              <circle cx="19" cy="19" r="3" />
+              <line x1="12" y1="8" x2="5" y2="16" />
+              <line x1="12" y1="8" x2="19" y2="16" />
+            </svg>
+            Admin sys &amp; réseaux · Cybersécurité · Infra cloud
+          </div>
+        </div>
+        <a href="#contact" class="btn btn--primary" style="margin-top: 28px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          Me proposer un stage
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VEILLE TECHNOLOGIQUE -->
+  <section class="section section--dark" id="veille">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__num">06</span>
+        <h2 class="section__title">Veille technologique</h2>
+        <p class="section__sub">Je surveille l'actualité tech chaque semaine via ces canaux et sujets</p>
+        <span class="section__deco" aria-hidden="true">06</span>
+      </div>
+
+      <div class="veille__grid">
+        <div class="veille__tools reveal">
+          <h4>Outils de veille</h4>
+          <div class="tool-list">
+            <div class="tool-item">
+              <div class="tool-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 11a9 9 0 0 1 9 9" />
+                  <path d="M4 4a16 16 0 0 1 16 16" />
+                  <circle cx="5" cy="19" r="1" />
+                </svg>
+              </div>
+              <div>
+                <strong>Feedly</strong>
+                <span>Agrégateur RSS — flux ANSSI, The Hacker News, Korben</span>
+              </div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <div>
+                <strong>Reddit</strong>
+                <span>r/sysadmin, r/networking, r/homelab, r/netsec</span>
+              </div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="23 7 16 12 23 17 23 7" />
+                  <rect x="1" y="5" width="15" height="14" rx="2" />
+                </svg>
+              </div>
+              <div>
+                <strong>YouTube</strong>
+                <span>NetworkChuck, Wolfgang's Channel, IppSec</span>
+              </div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div>
+                <strong>TryHackMe / HTB</strong>
+                <span>Apprentissage cybersécurité par la pratique</span>
+              </div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </div>
+              <div>
+                <strong>ANSSI / CVE.mitre.org</strong>
+                <span>Alertes de sécurité et vulnérabilités</span>
+              </div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div>
+                <strong>LinkedIn</strong>
+                <span>Suivi d'experts : Stéphane Bortzmeyer, Micode</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="veille__articles reveal">
+          <h4>Sujets suivis actuellement</h4>
+          <div class="article-cards">
+
+            <div class="article-card" data-tag="violet">
+              <span class="article-card__tag">Cybersécurité</span>
+              <h5>Attaques sur les routeurs SOHO</h5>
+              <p>Analyse des vecteurs d'attaque sur les équipements réseau grand public utilisés en télétravail.
+                Recommandations ANSSI 2024.</p>
+              <div class="article-card__meta">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Mars 2025
+              </div>
+            </div>
+
+            <div class="article-card" data-tag="orange">
+              <span class="article-card__tag article-card__tag--orange">Cloud</span>
+              <h5>SD-WAN et avenir du réseau d'entreprise</h5>
+              <p>Comment le SD-WAN remplace progressivement les MPLS traditionnels pour les PME avec des coûts réduits
+                et plus de flexibilité.</p>
+              <div class="article-card__meta">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Février 2025
+              </div>
+            </div>
+
+            <div class="article-card" data-tag="teal">
+              <span class="article-card__tag article-card__tag--green">Linux</span>
+              <h5>Systemd vs alternatives — état en 2025</h5>
+              <p>Tour d'horizon des alternatives à systemd (OpenRC, runit) et pourquoi systemd reste dominant sur les
+                distros entreprise.</p>
+              <div class="article-card__meta">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Janvier 2025
+              </div>
+            </div>
+
+            <div class="article-card" data-tag="violet">
+              <span class="article-card__tag">Cybersécurité</span>
+              <h5>Vulnérabilités critiques VMware ESXi</h5>
+              <p>CVE-2025-XXXX : exploitation des hyperviseurs ESXi non patchés dans des attaques ransomware ciblées sur
+                hôpitaux français.</p>
+              <div class="article-card__meta">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Avril 2025
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__num">07</span>
+        <h2 class="section__title">Contact</h2>
+        <p class="section__sub">Disponible pour alternance, stage ou simple échange</p>
+        <span class="section__deco" aria-hidden="true">07</span>
+      </div>
+
+      <div class="contact__grid">
+        <!-- Info panel -->
+        <div class="contact__info reveal">
+          <div class="contact__info-body">
+            <!-- Zone identité : qui + dispo + chips -->
+            <div class="contact__ident">
+              <div class="contact__ident-row">
+                <div class="contact__avatar" aria-hidden="true">EG</div>
+                <div class="contact__ident-text">
+                  <p class="contact__name">Ethan Geslin</p>
+                  <p class="contact__role">Administrateur Systèmes &amp; Réseaux</p>
+                </div>
+              </div>
+              <div class="contact__chips">
+                <span class="contact__chip contact__chip--teal">
+                  <span class="contact__status-dot" aria-hidden="true"></span>
+                  Disponible alternance
+                </span>
+                <span class="contact__chip">Île-de-France</span>
+                <span class="contact__chip">Sept. 2026</span>
+                <span class="contact__chip">BTS SIO SISR</span>
+              </div>
+            </div>
+            <!-- Divider label -->
+            <p class="contact__cards-label">Mes contacts</p>
+            <!-- Zone liens -->
+            <div class="contact__cards">
+              <a href="mailto:ethan.geslin@etudiant.fr" class="ccard ccard--violet">
+                <div class="ccard__icon-wrap" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                </div>
+                <div class="ccard__body">
+                  <span class="ccard__label">Email</span>
+                  <span class="ccard__value">ethan.geslin@etudiant.fr</span>
+                </div>
+                <svg class="ccard__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/ethangeslin-sisr" target="_blank" rel="noopener" class="ccard ccard--blue">
+                <div class="ccard__icon-wrap" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><line x1="7" y1="10" x2="7" y2="18"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/><path d="M11 18v-5a3 3 0 0 1 6 0v5"/><line x1="11" y1="13" x2="11" y2="18"/></svg>
+                </div>
+                <div class="ccard__body">
+                  <span class="ccard__label">LinkedIn</span>
+                  <span class="ccard__value">/in/ethangeslin-sisr</span>
+                </div>
+                <svg class="ccard__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://github.com/ethangeslin" target="_blank" rel="noopener" class="ccard ccard--slate">
+                <div class="ccard__icon-wrap" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </div>
+                <div class="ccard__body">
+                  <span class="ccard__label">GitHub</span>
+                  <span class="ccard__value">/ethangeslin</span>
+                </div>
+                <svg class="ccard__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="assets/cv-ethan-geslin.pdf" download class="ccard ccard--orange">
+                <div class="ccard__icon-wrap" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+                </div>
+                <div class="ccard__body">
+                  <span class="ccard__label">CV — PDF</span>
+                  <span class="ccard__value">Télécharger</span>
+                </div>
+                <svg class="ccard__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form panel -->
+        <form class="contact__form reveal" id="contactForm" novalidate>
+          <div class="contact__form-body">
+            <div class="form-heading">
+              <div class="form-heading__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </div>
+              <div>
+                <p class="form-heading__title">Envoyez un message</p>
+                <p class="form-heading__sub">Réponse sous 48h</p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.fr" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sujet">Sujet</label>
+              <input type="text" id="sujet" name="sujet" placeholder="Proposition d'alternance, question..." />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">
+              Envoyer le message
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <div class="form-feedback" id="formFeedback" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__logo">
+          <span class="nav__logo-l">E</span><span class="nav__logo-m">G</span><span class="nav__logo-dot"></span>
+        </div>
+        <p class="footer__text"><span class="footer__name">Ethan GESLIN</span> — BTS SIO SISR 2025–2027</p>
+        <div class="footer__tags">
+          <span class="footer__tag">HTML</span>
+          <span class="footer__tag">CSS</span>
+          <span class="footer__tag">JS</span>
+          <span class="footer__copy-text">— Fait avec passion</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="assets/js/doc-viewer.js" defer></script>
+
+  <!-- ══ DOC SOURCES ════════════════════════════════════ -->
+  <div id="doc-vm-lamp" class="doc-source" style="display:none"
+    data-title="VM Debian LAMP — Vagrant &amp; Ansible"
+    data-label="Documentation · Projet 01">
+    <!-- DOC:vm-lamp:START -->
+<p><em>Rédigé par Ethan Geslin</em></p>
+<p><code>Vagrant</code> · <code>Ansible</code> · <code>VMware Desktop</code> · <code>Debian 12</code></p>
+<hr>
+<div class="doc-callout doc-callout--info"><span class="doc-callout__icon">🎯</span><div class="doc-callout__body"><p><strong>Objectif</strong>: créer deux VMs Debian 12 avec une pile LAMP complète (Apache + MariaDB + PHP), provisionnées automatiquement.</p><ul>
+<li><strong>VM headless</strong>: serveur local en SSH</li>
+<li><strong>VM GNOME</strong>: bureau graphique</li>
+</ul>
+<p>Ce tutoriel t'explique <strong>ce que fait chaque bloc</strong> et <strong>pourquoi</strong>. À la fin de chaque section, un fichier complet est disponible pour vérifier ton travail.</p></div></div>
+<hr>
+<h2>1) Prérequis</h2>
+<h3>Vagrant</h3>
+<p>Vagrant est l’outil qui va piloter la création de ta VM. Il lit un <code>Vagrantfile</code> et gère tout le cycle de vie: création, démarrage, provisioning, suppression.</p>
+<p>Installe-le depuis: <a href="https://developer.hashicorp.com/vagrant/install" target="_blank" rel="noopener">https://developer.hashicorp.com/vagrant/install</a></p>
+<p>Vérifie ensuite:</p>
+<pre data-lang="bash"><code class="language-bash">vagrant --version</code></pre>
+<h3>VMware Desktop</h3>
+<p>C’est l’hyperviseur qui va exécuter la VM sur ta machine.</p>
+<p>Installe <strong>VMware Workstation</strong> (Windows / Linux) ou <strong>VMware Fusion</strong> (macOS), selon ton système.</p>
+<h3>Plugin Vagrant VMware</h3>
+<p>Vagrant ne parle pas à VMware nativement: il faut un plugin.</p>
+<pre data-lang="bash"><code class="language-bash">vagrant plugin install vagrant-vmware-desktop</code></pre>
+<p>Puis vérifie:</p>
+<pre data-lang="bash"><code class="language-bash">vagrant plugin list
+# vagrant-vmware-desktop doit apparaître</code></pre>
+<div class="doc-callout doc-callout--warning"><span class="doc-callout__icon">⚠️</span><div class="doc-callout__body"><p>Si <code>vagrant up</code> échoue avec <code>provider 'vmware_desktop' not found</code>, c’est que VMware Desktop n’est pas installé ou que le plugin est manquant.</p></div></div>
+<hr>
+<h2>2) Structure du projet</h2>
+<p>Crée les dossiers et fichiers vides suivants:</p>
+<pre data-lang="javascript"><code class="language-javascript">ton-projet/
+├── VM headless/
+│   ├── Vagrantfile
+│   └── deploy.yml
+└── VM GNOME/
+    ├── Vagrantfile
+    └── deploy.yml</code></pre>
+<p>Chaque dossier est <strong>indépendant</strong>: tu peux utiliser l’un sans l’autre.</p>
+<p>La séparation est volontaire:</p>
+<ul>
+<li>le <code>Vagrantfile</code> définit <strong>la machine</strong> (ressources, réseau, provider)</li>
+<li>le <code>deploy.yml</code> définit <strong>ce qui tourne dedans</strong> (Apache, PHP, MariaDB)</li>
+</ul>
+<hr>
+<h2>3) Le Vagrantfile headless — bloc par bloc</h2>
+<h3>Choisir la box de base</h3>
+<pre data-lang="ruby"><code class="language-ruby">Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;generic/debian12&quot;</code></pre>
+<p><code>Vagrant.configure(&quot;2&quot;)</code> ouvre le bloc de configuration (le <code>&quot;2&quot;</code> est la version de l’API Vagrant, toujours <code>&quot;2&quot;</code> aujourd’hui).</p>
+<p><code>config.vm.box</code> désigne l’image de base de la VM — ici Debian 12. Vagrant télécharge cette box automatiquement depuis <a href="https://app.vagrantup.com/generic/boxes/debian12" target="_blank" rel="noopener">Vagrant Cloud</a> si elle n’est pas encore en cache.</p>
+<h3>Nommer la machine</h3>
+<pre data-lang="ruby"><code class="language-ruby">config.vm.hostname = &quot;lamp-server&quot;</code></pre>
+<p>Ce nom identifie la machine sur le réseau interne. Il apparaît dans le prompt SSH une fois connecté (<code>demo@lamp-server</code>).</p>
+<p>Adapte le à ton projet.</p>
+<h3>Configurer le provider VMware</h3>
+<pre data-lang="ruby"><code class="language-ruby">config.vm.provider &quot;vmware_desktop&quot; do |v|
+  v.gui    = false
+  v.vmx[&quot;displayName&quot;] = &quot;LAMP-Server&quot;
+  v.cpus   = 2
+  v.memory = 2048
+end</code></pre>
+<ul>
+<li><code>v.gui = false</code>: la VM tourne en arrière-plan, sans fenêtre. Accès SSH uniquement. Pour la version GNOME, on passera ce paramètre à <code>true</code>.</li>
+<li><code>v.vmx[&quot;displayName&quot;]</code>: le nom affiché dans l’interface VMware.</li>
+<li><code>v.cpus</code> / <code>v.memory</code>: les ressources allouées. 2 CPU et 2 Go sont suffisants pour du LAMP headless.</li>
+</ul>
+<h3>Configurer le réseau</h3>
+<pre data-lang="ruby"><code class="language-ruby">config.vm.network &quot;private_network&quot;, type: &quot;dhcp&quot;</code></pre>
+<p>Cela crée un réseau privé entre ta machine hôte et la VM. La VM reçoit une IP automatique en DHCP.</p>
+<p>C’est ce réseau qui te permettra d’accéder à <code>http://&lt;ip-de-la-vm&gt;/info.php</code> depuis ton navigateur.</p>
+<h3>Partager le dossier courant</h3>
+<pre data-lang="ruby"><code class="language-ruby">config.vm.synced_folder &quot;.&quot;, &quot;/vagrant&quot;</code></pre>
+<p>Cela monte le dossier courant (où se trouve le <code>Vagrantfile</code>) dans <code>/vagrant</code> à l’intérieur de la VM. C’est ce qui permet à Ansible d’accéder au fichier <code>deploy.yml</code>.</p>
+<h3>Provisioning shell: préparer la machine</h3>
+<pre data-lang="ruby"><code class="language-ruby">config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
+  sed -i 's/XKBLAYOUT=.*/XKBLAYOUT=&quot;fr&quot;/' /etc/default/keyboard
+  dpkg-reconfigure -f noninteractive keyboard-configuration 2&gt;/dev/null || true
+
+  if ! id &quot;demo&quot; &amp;&gt;/dev/null; then
+    useradd -m -s /bin/bash demo
+    echo &quot;demo:demo&quot; | chpasswd
+    usermod -aG sudo demo
+  fi
+SHELL</code></pre>
+<p>Ce bloc shell s’exécute <strong>avant</strong> Ansible. Il fait deux choses:</p>
+<p><strong>Clavier en AZERTY</strong>: Debian 12 démarre par défaut avec un clavier QWERTY. La première ligne modifie le fichier de configuration clavier pour passer en français.</p>
+<p><strong>Création d’un utilisateur</strong>: on crée l’utilisateur <code>demo</code> avec le mot de passe <code>demo</code>, un dossier home (<code>-m</code>) et le shell bash. La condition <code>if ! id &quot;demo&quot;</code> évite de recréer l’utilisateur si le provisioning est relhancé.</p>
+<p>Change <code>demo</code> par ton nom d’utilisateur et <code>demo:demo</code> par <code>utilisateur:motdepasse</code>.</p>
+<h3>Provisioning Ansible: installer la stack</h3>
+<pre data-lang="ruby"><code class="language-ruby">config.vm.provision &quot;ansible_local&quot; do |ansible|
+  ansible.playbook           = &quot;deploy.yml&quot;
+  ansible.install            = true
+  ansible.compatibility_mode = &quot;2.0&quot;
+end</code></pre>
+<p>Après le shell, Vagrant déclenche Ansible.</p>
+<ul>
+<li><code>ansible_local</code>: Ansible est installé et exécuté <strong>dans la VM</strong> elle-même. Tu n’as rien à installer côté hôte.</li>
+<li><code>ansible.install = true</code>: Vagrant gère l’installation d’Ansible dans la VM automatiquement.</li>
+<li><code>ansible.playbook</code>: le fichier YAML à exécuter (il est accessible via <code>/vagrant/deploy.yml</code> grâce au dossier partagé).</li>
+</ul>
+<details><summary>📎 Vagrantfile complet — version headless (pour vérification)</summary><pre data-lang="ruby"><code class="language-ruby">Vagrant.configure(&quot;2&quot;) do |config|
+
+  config.vm.box = &quot;generic/debian12&quot;
+  config.vm.hostname = &quot;lamp-server&quot;
+
+  config.vm.provider &quot;vmware_desktop&quot; do |v|
+    v.gui    = false
+    v.vmx[&quot;displayName&quot;] = &quot;LAMP-Server&quot;
+    v.cpus   = 2
+    v.memory = 2048
+  end
+
+  config.vm.network &quot;private_network&quot;, type: &quot;dhcp&quot;
+  config.vm.synced_folder &quot;.&quot;, &quot;/vagrant&quot;
+
+  config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
+    sed -i 's/XKBLAYOUT=.*/XKBLAYOUT=&quot;fr&quot;/' /etc/default/keyboard
+    dpkg-reconfigure -f noninteractive keyboard-configuration 2&gt;/dev/null || true
+
+    if ! id &quot;demo&quot; &amp;&gt;/dev/null; then
+      useradd -m -s /bin/bash demo
+      echo &quot;demo:demo&quot; | chpasswd
+      usermod -aG sudo demo
+    fi
+  SHELL
+
+  config.vm.provision &quot;ansible_local&quot; do |ansible|
+    ansible.playbook           = &quot;deploy.yml&quot;
+    ansible.install            = true
+    ansible.compatibility_mode = &quot;2.0&quot;
+  end
+
+end</code></pre></details>
+<hr>
+<h2>4) Le playbook Ansible — bloc par bloc</h2>
+<p>Le fichier <code>deploy.yml</code> est un <strong>playbook Ansible</strong>: une liste de tâches à exécuter sur la machine cible.</p>
+<h3>En-tête du playbook</h3>
+<pre data-lang="yaml"><code class="language-yaml">---
+- name: &quot;Installation de la pile LAMP&quot;
+  hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: yes</code></pre>
+<ul>
+<li><code>---</code>: début d’un fichier YAML.</li>
+<li><code>hosts: all</code>: le playbook s’applique à toutes les machines de l’inventaire (ici, la VM Vagrant).</li>
+<li><code>become: yes</code>: les tâches s’exécutent en tant que root via sudo. Indispensable pour installer des paquets.</li>
+<li><code>gather_facts: yes</code>: Ansible collecte des informations sur la machine (OS, architecture…) au début. Utile pour écrire des tâches conditionnelles.</li>
+</ul>
+<h3>Tâche 1 — Mettre à jour APT</h3>
+<pre data-lang="yaml"><code class="language-yaml">- name: &quot;1. Mise à jour du cache APT&quot;
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600</code></pre>
+<p>Avant d’installer quoi que ce soit, il faut rafraîchir la liste des paquets disponibles.</p>
+<p><code>cache_valid_time: 3600</code> évite de mettre à jour le cache si c’est déjà été fait dans l’heure. Pratique quand on relance <code>vagrant provision</code> plusieurs fois.</p>
+<h3>Tâche 2 — Installer les paquets LAMP</h3>
+<pre data-lang="yaml"><code class="language-yaml">- name: &quot;2. Installation des paquets LAMP&quot;
+  ansible.builtin.apt:
+    name:
+      - apache2
+      - mariadb-server
+      - mariadb-client
+      - php
+      - libapache2-mod-php
+      - php-mysql
+      - php-cli
+      - php-mbstring
+      - php-xml
+      - php-curl
+    state: present</code></pre>
+<p>Chaque ligne installe un paquet:</p>
+<ul>
+<li><code>apache2</code>: le serveur web</li>
+<li><code>mariadb-server</code> + <code>mariadb-client</code>: la base de données</li>
+<li><code>php</code> + <code>libapache2-mod-php</code>: PHP et son intégration avec Apache</li>
+<li>les <code>php-*</code>: extensions courantes (connexion MySQL, manipulation de chaînes, XML, requêtes HTTP)</li>
+</ul>
+<p><code>state: present</code> signifie “installe si pas déjà présent”. C’est ce qui rend Ansible <strong>idempotent</strong>: tu peux relancer la tâche autant de fois que tu veux, elle ne réinstallère pas si c’est déjà en place.</p>
+<h3>Tâche 3 — Démarrer les services</h3>
+<pre data-lang="yaml"><code class="language-yaml">- name: &quot;3. Démarrage des services&quot;
+  ansible.builtin.service:
+    name: &quot; item &quot;
+    state: started
+    enabled: yes
+  loop:
+    - apache2
+    - mariadb</code></pre>
+<p>Installer un paquet ne démarre pas automatiquement le service. Cette tâche le fait explicitement.</p>
+<ul>
+<li><code>state: started</code>: démarre le service maintenant</li>
+<li><code>enabled: yes</code>: le service redémarre automatiquement après un reboot</li>
+<li><code>loop</code>: la même tâche est appliquée pour <code>apache2</code> et <code>mariadb</code>. <code> item </code> prend la valeur courante de la boucle.</li>
+</ul>
+<h3>Tâche 4 — Page de vérification PHP</h3>
+<pre data-lang="yaml"><code class="language-yaml">- name: &quot;4. Création d'une page PHP de test&quot;
+  ansible.builtin.copy:
+    dest: /var/www/html/info.php
+    content: |
+      &lt;?php
+      $apache  = function_exists('apache_get_version') ? apache_get_version() : 'Apache actif';
+      $php     = phpversion();
+      $db      = new mysqli('localhost', 'root', '');
+      $mariadb = $db-&gt;server_info ?? 'Non connecté';
+      ?&gt;
+      &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+      &lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;title&gt;LAMP OK&lt;/title&gt;&lt;/head&gt;
+      &lt;body style=&quot;font-family:sans-serif;max-width:500px;margin:40px auto&quot;&gt;
+        &lt;h1&gt;✅ Pile LAMP opérationnelle&lt;/h1&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong&gt;Apache:&lt;/strong&gt; &lt;?= $apache ?&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;PHP:&lt;/strong&gt; &lt;?= $php ?&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;MariaDB:&lt;/strong&gt; &lt;?= $mariadb ?&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;</code></pre>
+<p>Cette tâche crée un fichier PHP dans le dossier web d’Apache.</p>
+<p><code>ansible.builtin.copy</code> avec <code>content:</code> écrit directement le contenu du fichier sans avoir besoin d’un fichier source. Le <code>|</code> en YAML signifie “contenu littéral multiligne”.</p>
+<p>La page PHP interroge:</p>
+<ul>
+<li>la version d’Apache via <code>apache_get_version()</code></li>
+<li>la version de PHP via <code>phpversion()</code></li>
+<li>la version de MariaDB via une connexion <code>mysqli</code></li>
+</ul>
+<p>Accès: <code>http://&lt;ip-de-la-vm&gt;/info.php</code></p>
+<details><summary>📎 deploy.yml complet — (identique pour headless et GNOME)</summary><pre data-lang="yaml"><code class="language-yaml">---
+- name: &quot;Installation de la pile LAMP&quot;
+  hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+
+  tasks:
+
+    - name: &quot;1. Mise à jour du cache APT&quot;
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: &quot;2. Installation des paquets LAMP&quot;
+      ansible.builtin.apt:
+        name:
+          - apache2
+          - mariadb-server
+          - mariadb-client
+          - php
+          - libapache2-mod-php
+          - php-mysql
+          - php-cli
+          - php-mbstring
+          - php-xml
+          - php-curl
+        state: present
+
+    - name: &quot;3. Démarrage des services&quot;
+      ansible.builtin.service:
+        name: &quot; item &quot;
+        state: started
+        enabled: yes
+      loop:
+        - apache2
+        - mariadb
+
+    - name: &quot;4. Création d'une page PHP de test&quot;
+      ansible.builtin.copy:
+        dest: /var/www/html/info.php
+        content: |
+          &lt;?php
+          $apache  = function_exists('apache_get_version') ? apache_get_version() : 'Apache actif';
+          $php     = phpversion();
+          $db      = new mysqli('localhost', 'root', '');
+          $mariadb = $db-&gt;server_info ?? 'Non connecté';
+          ?&gt;
+          &lt;!DOCTYPE html&gt;
+          &lt;html&gt;
+          &lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;title&gt;LAMP OK&lt;/title&gt;&lt;/head&gt;
+          &lt;body style=&quot;font-family:sans-serif;max-width:500px;margin:40px auto&quot;&gt;
+            &lt;h1&gt;✅ Pile LAMP opérationnelle&lt;/h1&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;strong&gt;Apache:&lt;/strong&gt; &lt;?= $apache ?&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;strong&gt;PHP:&lt;/strong&gt; &lt;?= $php ?&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;strong&gt;MariaDB:&lt;/strong&gt; &lt;?= $mariadb ?&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/body&gt;
+          &lt;/html&gt;</code></pre></details>
+<hr>
+<h2>5) Le Vagrantfile GNOME — les différences</h2>
+<p>Le Vagrantfile de la VM GNOME est très proche de la version headless. Voici uniquement ce qui change.</p>
+<h3>Interface graphique activée</h3>
+<pre data-lang="ruby"><code class="language-ruby">v.gui = true</code></pre>
+<p>Passé à <code>true</code>, VMware ouvre la fenêtre graphique automatiquement au <code>vagrant up</code>.</p>
+<h3>Plus de mémoire</h3>
+<pre data-lang="ruby"><code class="language-ruby">v.memory = 4096</code></pre>
+<p>GNOME consomme plus de RAM qu’un serveur headless. 4 Go est le minimum raisonnable pour un bureau fluide.</p>
+<h3>Installation de GNOME dans le shell</h3>
+<pre data-lang="ruby"><code class="language-ruby"># Installation de GNOME
+apt-get update -qq
+DEBIAN_FRONTEND=noninteractive apt-get install -y gnome-core gdm3</code></pre>
+<p>Le paquet <code>gnome-core</code> installe l’environnement de bureau GNOME dans sa version minimale. <code>gdm3</code> est le gestionnaire de session (login graphique).</p>
+<p><code>DEBIAN_FRONTEND=noninteractive</code> évite les boites de dialogue interactives pendant l’installation: sans ça, certains paquets demandent des confirmations qui bloquent le provisioning.</p>
+<h3>Autologin configuré</h3>
+<pre data-lang="ruby"><code class="language-ruby">    mkdir -p /etc/gdm3
+    cat &gt; /etc/gdm3/daemon.conf &lt;&lt;EOF
+[daemon]
+AutomaticLoginEnable=true
+AutomaticLogin=demo
+EOF</code></pre>
+<p>Ce bloc écrit le fichier de configuration de GDM (le gestionnaire de login GNOME). Il configure la connexion automatique au démarrage sans mot de passe pour l’utilisateur <code>demo</code>.</p>
+<p>Si tu changes le nom d’utilisateur, mets-le aussi ici.</p>
+<details><summary>📎 Vagrantfile complet — version GNOME (pour vérification)</summary><pre data-lang="ruby"><code class="language-ruby">Vagrant.configure(&quot;2&quot;) do |config|
+
+  config.vm.box = &quot;generic/debian12&quot;
+  config.vm.hostname = &quot;lamp-desktop&quot;
+
+  config.vm.provider &quot;vmware_desktop&quot; do |v|
+    v.gui    = true
+    v.vmx[&quot;displayName&quot;] = &quot;LAMP-Desktop&quot;
+    v.cpus   = 2
+    v.memory = 4096
+  end
+
+  config.vm.network &quot;private_network&quot;, type: &quot;dhcp&quot;
+  config.vm.synced_folder &quot;.&quot;, &quot;/vagrant&quot;
+
+  config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
+    sed -i 's/XKBLAYOUT=.*/XKBLAYOUT=&quot;fr&quot;/' /etc/default/keyboard
+    dpkg-reconfigure -f noninteractive keyboard-configuration 2&gt;/dev/null || true
+
+    if ! id &quot;demo&quot; &amp;&gt;/dev/null; then
+      useradd -m -s /bin/bash demo
+      echo &quot;demo:demo&quot; | chpasswd
+      usermod -aG sudo demo
+    fi
+
+    apt-get update -qq
+    DEBIAN_FRONTEND=noninteractive apt-get install -y gnome-core gdm3
+
+    mkdir -p /etc/gdm3
+    cat &gt; /etc/gdm3/daemon.conf &lt;&lt;EOF
+[daemon]
+AutomaticLoginEnable=true
+AutomaticLogin=demo
+EOF
+  SHELL
+
+  config.vm.provision &quot;ansible_local&quot; do |ansible|
+    ansible.playbook           = &quot;deploy.yml&quot;
+    ansible.install            = true
+    ansible.compatibility_mode = &quot;2.0&quot;
+  end
+
+end</code></pre></details>
+<hr>
+<h2>6) Lancer et vérifier</h2>
+<h3>VM headless</h3>
+<pre data-lang="bash"><code class="language-bash">cd &quot;VM headless&quot;
+vagrant up</code></pre>
+<p>La première exécution télécharge la box, crée la VM, exécute le shell puis le playbook Ansible. Cela prend quelques minutes.</p>
+<p>Une fois terminé, connecte-toi:</p>
+<pre data-lang="bash"><code class="language-bash">vagrant ssh</code></pre>
+<p>Recupère l’IP:</p>
+<pre data-lang="bash"><code class="language-bash">ip a
+# Cherche eth1 ou ens... (pas lo)</code></pre>
+<p>Ouvre dans ton navigateur:</p>
+<pre data-lang="javascript"><code class="language-javascript">http://&lt;ip&gt;/info.php</code></pre>
+<h3>VM GNOME</h3>
+<pre data-lang="bash"><code class="language-bash">cd &quot;VM GNOME&quot;
+vagrant up
+# La fenêtre VMware s'ouvre avec le bureau GNOME</code></pre>
+<p>Dans le terminal de la VM, récupère l’IP avec <code>ip a</code>, puis accède à <code>http://&lt;ip&gt;/info.php</code>.</p>
+<div class="doc-callout doc-callout--tip"><span class="doc-callout__icon">✅</span><div class="doc-callout__body"><p>Si la page <code>info.php</code> affiche les versions <strong>Apache</strong>, <strong>PHP</strong> et <strong>MariaDB</strong> — tout fonctionne.</p></div></div>
+<hr>
+<h2>7) Commandes utiles</h2>
+<hr>
+<h2>Conclusion</h2>
+<div class="doc-callout doc-callout--tip"><span class="doc-callout__icon">✅</span><div class="doc-callout__body"><p>Setup fonctionnel, reproductible en un <code>vagrant up</code>. Objectif atteint.</p></div></div>
+<p><em>Rédigé par Ethan Geslin</em></p>
+<!-- DOC:vm-lamp:END -->
+  </div>
+
+</body>
+
+</html>

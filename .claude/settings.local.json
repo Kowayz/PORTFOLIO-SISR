@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Kowiz/.claude//**)",
+      "Read(//c/Users/Kowiz/.claude/plugins//**)",
+      "Bash(python3 \"/c/Users/Kowiz/.claude/skills/ui-ux-pro-max-skill/src/ui-ux-pro-max/search.py\" \"portfolio student IT cybersecurity dark theme\" --design-system -p \"Ethan Geslin - BTS SIO SISR\")",
+      "WebFetch(domain:nebulous-citron-069.notion.site)",
+      "Bash(npm install:*)",
+      "Bash(node sync-docs.js)",
+      "WebFetch(domain:app.unpkg.com)",
+      "WebSearch",
+      "WebFetch(domain:icons.lobehub.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(curl -I \"https://cdn.simpleicons.org/windows/c4b5fd\")",
+      "Bash(curl -I \"https://cdn.simpleicons.org/powershell/c4b5fd\")",
+      "Bash(curl -I \"https://cdn.simpleicons.org/google/fda4af\")",
+      "Bash(curl -I \"https://unpkg.com/@lobehub/icons-static-png@latest/dark/Gemma.png\")",
+      "Bash(curl -I \"https://unpkg.com/@lobehub/icons-static-png@latest/dark/Google.png\")",
+      "Bash(curl -I \"https://unpkg.com/@lobehub/icons-static-png@latest/dark/WindowsServer.png\")",
+      "Bash(curl -I \"https://unpkg.com/@lobehub/icons-static-png@latest/dark/Microsoft.png\")",
+      "Bash(curl:*)",
+      "Bash(claude mcp:*)",
+      "mcp__magic__21st_magic_component_inspiration"
+    ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true
+  }
+}
