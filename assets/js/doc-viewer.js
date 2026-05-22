@@ -18,7 +18,8 @@ const DocViewer = (function () {
   function init() {
     _buildShell();
 
-    document.querySelectorAll('.project-card__footer-doc[data-notion-url]').forEach(btn => {
+    document.querySelectorAll('[data-notion-url]').forEach(btn => {
+      if (btn.classList.contains('project-card__cmd--wip')) return;
       btn.addEventListener('click', () => {
         const card   = btn.closest('[data-accent]');
         const url    = btn.dataset.notionUrl;

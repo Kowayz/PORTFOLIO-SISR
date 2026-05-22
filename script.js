@@ -111,7 +111,7 @@ const barObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 
-document.querySelectorAll('.skill-card__fill').forEach(b => barObserver.observe(b));
+document.querySelectorAll('.skill-row__fill, .skill-card__fill').forEach(b => barObserver.observe(b));
 
 // ── TYPEWRITER ───────────────────────────────
 const typeTarget = document.querySelector('.type-cursor');
@@ -215,3 +215,202 @@ if (form) {
     setTimeout(() => { feedback.className = 'form-feedback'; feedback.textContent = ''; }, 6000);
   });
 }
+
+// ── TABLEAU DE SYNTHÈSE — accordéon ─────────
+(function () {
+  const toggle = document.getElementById('apSynthToggle');
+  const panel  = document.getElementById('apSynthPanel');
+  if (!toggle || !panel) return;
+
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    if (!open) {
+      panel.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+      // Lazy-load l'iframe au premier clic
+      const iframe = panel.querySelector('iframe[data-src]');
+      if (iframe) { iframe.src = iframe.dataset.src; delete iframe.dataset.src; }
+    } else {
+      panel.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}());
+
+// ── PDF VIEWER MODAL (PDF.js) ────────────────
+document.addEventListener('DOMContentLoaded', function () {
+  const modal      = document.getElementById('pdfModal');
+  if (!modal) return;
+
+  const badge      = document.getElementById('pdfModalBadge');
+  const titleEl    = document.getElementById('pdfModalTitle');
+  const dlBtn      = document.getElementById('pdfDl');
+  const closeBtn   = document.getElementById('pdfClose');
+  const loading    = document.getElementById('pdfLoading');
+  const footerHint = document.getElementById('pdfFooterHint');
+  const zoomPct    = document.getElementById('pdfZoomPct');
+  const btnZoomIn  = document.getElementById('pdfZoomIn');
+  const btnZoomOut = document.getElementById('pdfZoomOut');
+  const btnZoomReset = document.getElementById('pdfZoomReset');
+  const canvasWrap = document.getElementById('pdfCanvasWrap');
+  const pdfBody    = document.getElementById('pdfBody');
+
+  const PDFJS_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+  const WORKER    = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  const ACCENTS = {
+    'ap-card--violet': { gradient:'linear-gradient(90deg,#7c3aed,#f43f5e)', dim:'rgba(124,58,237,0.14)', text:'#c4b5fd', border:'rgba(124,58,237,0.40)', hover:'rgba(124,58,237,0.24)' },
+    'ap-card--purple': { gradient:'linear-gradient(90deg,#8b5cf6,#3b82f6)', dim:'rgba(139,92,246,0.14)', text:'#a78bfa', border:'rgba(139,92,246,0.40)', hover:'rgba(139,92,246,0.24)' },
+    'ap-card--orange': { gradient:'linear-gradient(90deg,#f97316,#fbbf24)', dim:'rgba(249,115,22,0.14)', text:'#fdba74', border:'rgba(249,115,22,0.40)', hover:'rgba(249,115,22,0.24)' },
+    'ap-card--rose':   { gradient:'linear-gradient(90deg,#f43f5e,#f97316)', dim:'rgba(244,63,94,0.14)', text:'#fda4af', border:'rgba(244,63,94,0.40)', hover:'rgba(244,63,94,0.24)' },
+    'ap-card--teal':   { gradient:'linear-gradient(90deg,#14b8a6,#3b82f6)', dim:'rgba(20,184,166,0.14)', text:'#5eead4', border:'rgba(20,184,166,0.40)', hover:'rgba(20,184,166,0.24)' },
+  };
+
+  let pdfDoc   = null;
+  let scale    = 1.2;
+  let fitScale = 1.2;
+  let zoomPending = false;
+
+  function loadPdfJs(cb) {
+    if (window.pdfjsLib) { cb(); return; }
+    const s = document.createElement('script');
+    s.src = PDFJS_CDN;
+    s.onload = () => { window.pdfjsLib.GlobalWorkerOptions.workerSrc = WORKER; cb(); };
+    document.head.appendChild(s);
+  }
+
+  function computeFitScale(page) {
+    const vp = page.getViewport({ scale: 1 });
+    return Math.max(0.4, (pdfBody.clientWidth - 48) / vp.width);
+  }
+
+  function renderPageOnCanvas(page, canvas) {
+    const dpr = window.devicePixelRatio || 1;
+    const vp  = page.getViewport({ scale });
+    canvas.width  = Math.floor(vp.width  * dpr);
+    canvas.height = Math.floor(vp.height * dpr);
+    canvas.style.width  = vp.width  + 'px';
+    canvas.style.height = vp.height + 'px';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    return page.render({ canvasContext: ctx, viewport: vp }).promise;
+  }
+
+  async function renderAllPages() {
+    if (!pdfDoc) return;
+    loading.classList.remove('hidden');
+    canvasWrap.innerHTML = '';
+
+    const renders = [];
+    for (let i = 1; i <= pdfDoc.numPages; i++) {
+      const canvas = document.createElement('canvas');
+      canvasWrap.appendChild(canvas);
+      const page = await pdfDoc.getPage(i);
+      renders.push(renderPageOnCanvas(page, canvas));
+    }
+    await Promise.all(renders);
+    loading.classList.add('hidden');
+    updateZoomUI();
+  }
+
+  function updateZoomUI() {
+    zoomPct.textContent   = Math.round(scale / fitScale * 100) + '%';
+    btnZoomOut.disabled   = scale <= fitScale * 0.4;
+    btnZoomIn.disabled    = scale >= fitScale * 3;
+  }
+
+  function applyAccent(el) {
+    const COLOR_MAP = {
+      violet: ACCENTS['ap-card--violet'],
+      purple: ACCENTS['ap-card--purple'],
+      orange: ACCENTS['ap-card--orange'],
+      rose:   ACCENTS['ap-card--rose'],
+      teal:   ACCENTS['ap-card--teal'],
+    };
+    let accent = COLOR_MAP.violet;
+    for (const [key, val] of Object.entries(COLOR_MAP)) {
+      if ([...el.classList].some(c => c.endsWith('--' + key))) { accent = val; break; }
+    }
+    modal.style.setProperty('--modal-accent',        accent.gradient);
+    modal.style.setProperty('--modal-accent-dim',    accent.dim);
+    modal.style.setProperty('--modal-accent-text',   accent.text);
+    modal.style.setProperty('--modal-accent-border', accent.border);
+    modal.style.setProperty('--modal-accent-hover',  accent.hover);
+  }
+
+  function openModal(card) {
+    badge.textContent   = card.dataset.num;
+    titleEl.textContent = card.dataset.title;
+    dlBtn.href          = card.dataset.pdf;
+    applyAccent(card);
+
+    modal.hidden = false;
+    modal.classList.remove('closing');
+    document.body.style.overflow = 'hidden';
+    pdfBody.scrollTop = 0;
+    canvasWrap.innerHTML = '';
+    loading.classList.remove('hidden');
+
+    loadPdfJs(() => {
+      pdfjsLib.getDocument(card.dataset.pdf).promise.then(async pdf => {
+        pdfDoc = pdf;
+        footerHint.textContent = '// ' + pdf.numPages + ' page' + (pdf.numPages > 1 ? 's' : '') + ' · ESC pour fermer';
+        const firstPage = await pdf.getPage(1);
+        fitScale = computeFitScale(firstPage);
+        scale    = fitScale;
+        renderAllPages();
+      }).catch(() => loading.classList.add('hidden'));
+    });
+  }
+
+  function closeModal() {
+    modal.classList.add('closing');
+    setTimeout(() => {
+      modal.hidden = true;
+      modal.classList.remove('closing');
+      pdfDoc = null;
+      canvasWrap.innerHTML = '';
+      document.body.style.overflow = '';
+    }, 210);
+  }
+
+  // ── Zoom controls ──
+  function applyZoom() {
+    if (zoomPending) return;
+    zoomPending = true;
+    requestAnimationFrame(() => { zoomPending = false; renderAllPages(); });
+  }
+
+  btnZoomIn.addEventListener('click', () => {
+    scale = Math.min(scale * 1.25, fitScale * 3); applyZoom();
+  });
+  btnZoomOut.addEventListener('click', () => {
+    scale = Math.max(scale / 1.25, fitScale * 0.4); applyZoom();
+  });
+  btnZoomReset.addEventListener('click', () => {
+    scale = fitScale; applyZoom();
+  });
+
+  pdfBody.addEventListener('wheel', e => {
+    if (!e.ctrlKey) return;
+    e.preventDefault();
+    scale = e.deltaY < 0
+      ? Math.min(scale * 1.1, fitScale * 3)
+      : Math.max(scale / 1.1, fitScale * 0.4);
+    applyZoom();
+  }, { passive: false });
+
+  // ── Card triggers ──
+  document.querySelectorAll('.ap-card[data-pdf]').forEach(card => {
+    card.addEventListener('click', () => openModal(card));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card); }
+    });
+  });
+
+
+  closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+});

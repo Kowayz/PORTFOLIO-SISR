@@ -20,7 +20,13 @@
       "Bash(curl -I \"https://unpkg.com/@lobehub/icons-static-png@latest/dark/Microsoft.png\")",
       "Bash(curl:*)",
       "Bash(claude mcp:*)",
-      "mcp__magic__21st_magic_component_inspiration"
+      "mcp__magic__21st_magic_component_inspiration",
+      "Bash(powershell -NoProfile -Command \"\\(Get-Content -LiteralPath 'index.html' -Raw\\).Length\")",
+      "Bash(command -v python)",
+      "Bash(command -v node)",
+      "Bash(command -v py)",
+      "Bash(py -m http.server 8765 --bind 127.0.0.1)",
+      "Bash(py -c ' *)"
     ]
   },
   "enabledPlugins": {
