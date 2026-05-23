@@ -48,12 +48,14 @@ PORTFOLIO SISR/
 ## Design System — Règles Absolues
 
 > [!IMPORTANT]
-> **Avant toute modification visuelle, design ou frontend (HTML/CSS/JS), tu DOIS lire et appliquer les instructions des skills suivantes :**
+> **Avant toute modification visuelle, design ou frontend (HTML/CSS/JS), tu DOIS lire et appliquer les instructions des ressources suivantes :**
 > - `.claude/skills/frontend-design/SKILL.md` — Design distinctif, production-grade, anti-"AI slop"
+> - `.claude/skills/ui-ux-pro-max-skill/` — Chercher inspirations styles, palettes, typo via `search.py` (voir section Skills)
 > - `.claude/skills/web-design-guidelines/SKILL.md` — Audit UX/accessibilité Vercel
 > - `.claude/skills/seo-aeo-best-practices/SKILL.md` — SEO, Open Graph, JSON-LD, EEAT
+> - **Plugin `modern-web-guidance`** — 124 guides d'APIs web modernes par Google Chrome (voir section Plugins)
 >
-> **Ne jamais ignorer ces skills.** Elles définissent le standard de qualité du projet.
+> **Ne jamais ignorer ces ressources.** Elles définissent le standard de qualité du projet.
 
 ### Identité Visuelle
 
@@ -168,15 +170,84 @@ Le dossier `.claude/skills/` contient des définitions de compétences pour l'IA
 | Skill | Dossier | Quand l'utiliser |
 |-------|---------|-----------------|
 | **Frontend Design** | `.claude/skills/frontend-design/` | Toute création/modification de composant, page, ou style CSS |
+| **UI/UX Pro Max** | `.claude/skills/ui-ux-pro-max-skill/` | Recherche d'inspirations design (styles, palettes, typo, UX, charts) |
 | **Web Design Guidelines** | `.claude/skills/web-design-guidelines/` | Audit UI/UX, review accessibilité, vérification bonnes pratiques |
 | **SEO & AEO** | `.claude/skills/seo-aeo-best-practices/` | Metadata, Open Graph, JSON-LD, sitemaps, optimisation contenu |
 | **Vercel Deploy** | `.claude/skills/vercel-deploy-claimable/` | Déploiement sur Vercel (preview ou production) |
 
+### UI/UX Pro Max — Moteur de Recherche Design
+
+Cette skill contient une **base de données interrogeable** de 67 styles UI, 161 palettes couleurs, 57 pairings typographiques, 99 guidelines UX, et 25 types de charts.
+
+**Commande de recherche :**
+```bash
+python3 .claude/skills/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py "<query>" --domain <domain>
+```
+
+**Domaines disponibles :**
+| Domaine | Contenu |
+|---------|---------|
+| `style` | Styles UI (glassmorphism, brutalism, etc.) + mots-clés CSS |
+| `color` | Palettes couleurs par type de produit |
+| `typography` | Pairings de polices avec imports Google Fonts |
+| `ux` | Bonnes pratiques et anti-patterns UX |
+| `product` | Recommandations par type de produit (portfolio, SaaS, etc.) |
+| `landing` | Structures de pages et stratégies CTA |
+| `chart` | Types de graphiques et librairies recommandées |
+
+**Exemples d'utilisation :**
+```bash
+# Chercher des styles gaming/portfolio
+python3 .claude/skills/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py "gaming dark portfolio" --domain style
+
+# Trouver des palettes violet/orange
+python3 .claude/skills/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py "violet orange dark" --domain color
+
+# Chercher des guidelines UX pour l'accessibilité
+python3 .claude/skills/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py "accessibility contrast" --domain ux
+```
+
+> [!TIP]
+> **Utilise cette skill AVANT de coder** pour t'inspirer et valider tes choix de design. Ne jamais inventer un style à l'aveugle quand une base de données de référence est disponible.
+
+---
+
+## Plugins Globaux
+
+### Modern Web Guidance (Google Chrome)
+
+Plugin installé globalement contenant **124 guides de bonnes pratiques web modernes** par l'équipe Google Chrome. Couvre les APIs web les plus récentes.
+
+**Emplacement :** `C:\Users\Kowiz\.gemini\config\plugins\modern-web-guidance-plugin\README.md`
+
+**Catégories de guides :**
+| Catégorie | Exemples de guides |
+|-----------|--------------------|
+| **User Experience** | View Transitions, scroll-driven animations, parallax, anchor positioning, popovers, navigation drawers |
+| **CSS moderne** | Container queries, `@starting-style`, `calc-size()`, `light-dark()`, `text-wrap: balance`, `scrollbar-color` |
+| **Performance** | `content-visibility`, fetch priority, `scheduler.yield()`, lazy rendering, preload/prerender |
+| **Forms** | Customizable `<select>`, `field-sizing: content`, `:user-invalid`, autofill styling |
+| **Accessibilité** | Error announcements accessibles, `inert`, keyboard focus management |
+| **Animations** | Entry/exit animations, animate to intrinsic sizes, physics-based easing, group transitions |
+
+> [!IMPORTANT]
+> **Quand utiliser ce plugin :** Avant d'implémenter une fonctionnalité interactive ou visuelle, vérifie si une API web moderne native peut remplacer du JavaScript custom. Par exemple :
+> - Scroll animations → utiliser les **Scroll-driven animations CSS** au lieu de JS
+> - Tooltips → utiliser **CSS Anchor Positioning** + **Popover API** au lieu de JS
+> - Transitions de page → utiliser les **View Transitions**
+> - Animations d'entrée/sortie → utiliser `@starting-style` + `transition-behavior: allow-discrete`
+>
+> Consulte le README du plugin pour trouver le guide pertinent, puis lis le guide spécifique sur GitHub.
+
+---
+
 > [!CAUTION]
 > **Règle impérative :** Pour TOUTE modification touchant au design, au visuel, au CSS, ou au frontend HTML/JS, tu **dois** :
-> 1. Lire le SKILL.md de `frontend-design` **avant** de coder
-> 2. Appliquer les guidelines de `web-design-guidelines`
-> 3. Vérifier la conformité SEO via `seo-aeo-best-practices`
+> 1. Chercher des inspirations via `ui-ux-pro-max-skill` (search.py) **avant** de coder
+> 2. Lire le SKILL.md de `frontend-design` pour les principes de design
+> 3. Vérifier si une API web moderne (plugin `modern-web-guidance`) peut remplacer du JS custom
+> 4. Appliquer les guidelines de `web-design-guidelines` pour l'UX/accessibilité
+> 5. Vérifier la conformité SEO via `seo-aeo-best-practices`
 >
 > Un résultat générique ou "AI slop" est **inacceptable**. Le portfolio doit rester premium, distinctif et mémorable.
 
