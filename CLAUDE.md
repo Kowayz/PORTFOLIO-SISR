@@ -38,4 +38,8 @@ Reveal-on-scroll uses the `.reveal` / `.visible` class pair: elements start invi
 
 ## Skills Folder
 
-The `skills/` directory contains **Claude Code skill definitions** (SKILL.md files for frontend-design, vercel-deploy, SEO, ui-ux-pro-max, etc.). These are tool configurations, not portfolio content — do not confuse them with the SISR skill categories in `index.html`.
+The `.claude/skills/` directory contains **Claude Code skill definitions** (folders for `frontend-design`, `vercel-deploy-claimable`, `seo-aeo-best-practices`, `ui-ux-pro-max-skill`, etc.). These are tool configurations, not portfolio content — do not confuse them with the SISR skill categories in `index.html`.
+
+> [!IMPORTANT]
+> Lors de toute modification ou amélioration touchant au **design**, au **visuel** ou au **frontend** (HTML/CSS/JS), vous **devez** impérativement lire et appliquer les instructions et compétences définies dans les dossiers `.claude/skills/frontend-design`, `.claude/skills/ui-ux-pro-max-skill`, et `.claude/skills/web-design-guidelines` pour garantir un rendu haut de gamme, moderne et respectant les meilleures pratiques.
+
